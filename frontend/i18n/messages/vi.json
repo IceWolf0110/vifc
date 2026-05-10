@@ -1,0 +1,10 @@
+{
+  "home": {
+    "test": "Thử"
+  },
+  "auth": {
+    "login": {
+      "title": "Đăng nhập"
+    }
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "home": {
+    "test": "test"
+  },
+  "auth": {
+    "login": {
+      "title": "Login"
+    }
+  }
+}
