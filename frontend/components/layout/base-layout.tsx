@@ -3,6 +3,7 @@ import { ThemeProvider } from "@/components/theme-provider"
 import { ReactNode } from "react"
 import { Geist, Geist_Mono } from "next/font/google"
 import { NextIntlClientProvider } from "next-intl"
+import { CookiesProvider } from "next-client-cookies/server"
 
 const geist = Geist({ subsets: ["latin"], variable: "--font-sans" })
 
@@ -25,7 +26,9 @@ export async function BaseLayout({ children }: { children: ReactNode }) {
     >
       <body>
         <ThemeProvider>
-          <NextIntlClientProvider>{children}</NextIntlClientProvider>
+          <NextIntlClientProvider>
+            <CookiesProvider>{children}</CookiesProvider>
+          </NextIntlClientProvider>
         </ThemeProvider>
       </body>
     </html>
