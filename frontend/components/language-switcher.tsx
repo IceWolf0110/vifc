@@ -26,8 +26,8 @@ export function LanguageSwitcher() {
 
   return (
     <Button
-      variant="outline"
-      size="sm"
+      variant="ghost"
+      size="icon"
       disabled={isPending}
       onClick={() => switchLocale(currentLocale === "en" ? "vi" : "en")}
     >
