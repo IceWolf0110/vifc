@@ -5,6 +5,7 @@ import { useLocale, useTranslations } from "next-intl"
 import { useRouter } from "next/navigation"
 import { useCookies } from "next-client-cookies"
 import { Button } from "@/components/ui/button"
+import { Languages } from "lucide-react"
 
 const LOCALE_COOKIE = "__next_locale"
 type LocaleCode = "en" | "vi"
@@ -27,10 +28,11 @@ export function LanguageSwitcher() {
   return (
     <Button
       variant="ghost"
-      size="icon"
+      size="lg"
       disabled={isPending}
       onClick={() => switchLocale(currentLocale === "en" ? "vi" : "en")}
     >
+      <Languages />
       {t("locale").toUpperCase()}
     </Button>
   )

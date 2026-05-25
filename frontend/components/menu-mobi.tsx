@@ -7,7 +7,6 @@ import {
   SheetTrigger,
 } from "@/components/ui/sheet"
 import { Menu } from "lucide-react"
-import Link from "next/link"
 
 export function MenuMobi() {
   return (
@@ -17,11 +16,7 @@ export function MenuMobi() {
       </SheetTrigger>
       <SheetContent side="left">
         <SheetHeader className="text-center">
-          <SheetTitle className="text-5xl font-black italic">
-            <Link href="/">
-              VIFC
-            </Link>
-          </SheetTitle>
+          <SheetTitle />
           <SheetDescription />
         </SheetHeader>
       </SheetContent>
