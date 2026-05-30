@@ -5,6 +5,7 @@ import { Geist, Geist_Mono } from "next/font/google"
 import { NextIntlClientProvider } from "next-intl"
 import { CookiesProvider } from "next-client-cookies/server"
 import { Header } from "@/components/header"
+import { TooltipProvider } from "@/components/ui/tooltip"
 
 const geist = Geist({ subsets: ["latin"], variable: "--font-sans" })
 
@@ -28,7 +29,9 @@ async function Layout({ children }: { children: ReactNode }) {
       <body>
         <ThemeProvider>
           <NextIntlClientProvider>
-            <CookiesProvider>{children}</CookiesProvider>
+            <CookiesProvider>
+              <TooltipProvider>{children}</TooltipProvider>
+            </CookiesProvider>
           </NextIntlClientProvider>
         </ThemeProvider>
       </body>
@@ -37,7 +40,13 @@ async function Layout({ children }: { children: ReactNode }) {
 }
 
 export function AuthLayout({ children }: { children: ReactNode }) {
-  return <Layout>{children}</Layout>
+  return (
+    <Layout>
+      <main className="flex min-h-screen items-center justify-center">
+        {children}
+      </main>
+    </Layout>
+  )
 }
 
 export function WebLayout({ children }: { children: ReactNode }) {

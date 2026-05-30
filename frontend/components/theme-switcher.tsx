@@ -14,7 +14,7 @@ import {
 import { useEffect, useState } from "react"
 import { useIsMobile } from "@/hooks/use-mobile"
 
-export function ThemeSelector() {
+export function ThemeSwitcher() {
   const { theme, setTheme } = useTheme()
   const [mounted, setMounted] = useState(false)
   const isMobile = useIsMobile()
@@ -29,16 +29,22 @@ export function ThemeSelector() {
   return (
     <Select value={theme} onValueChange={(value) => value && setTheme(value)}>
       <SelectTrigger
-        className="flex h-8 w-8 items-center justify-center border-0 bg-transparent dark:bg-transparent"
+        className="flex h-8 w-8 items-center justify-center rounded-full border-0 bg-transparent dark:bg-transparent"
         render={
           <Button variant="ghost" size="icon">
-            <Sun className="h-[1.2rem] w-[1.2rem] scale-100 rotate-0 transition-all dark:scale-0 dark:-rotate-90" />
-            <Moon className="absolute h-[1.2rem] w-[1.2rem] scale-0 rotate-90 transition-all dark:scale-100 dark:rotate-0" />
+            {theme === "system" ? (
+              <Monitor className="h-[1.2rem] w-[1.2rem]" />
+            ) : (
+              <>
+                <Sun className="h-[1.2rem] w-[1.2rem] scale-100 rotate-0 transition-all dark:scale-0 dark:-rotate-90" />
+                <Moon className="absolute h-[1.2rem] w-[1.2rem] scale-0 rotate-90 transition-all dark:scale-100 dark:rotate-0" />
+              </>
+            )}
           </Button>
         }
       />
       <SelectContent
-        sideOffset={isMobile ? 14 : 16}
+        sideOffset={isMobile ? 14 : 18}
         alignItemWithTrigger={false}
       >
         <SelectItem value="light" className="p-2">

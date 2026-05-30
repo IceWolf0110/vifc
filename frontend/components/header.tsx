@@ -1,7 +1,7 @@
 import { MenuMobi } from "@/components/menu-mobi"
 import Link from "next/link"
 import { LanguageSwitcher } from "@/components/language-switcher"
-import { ThemeSelector } from "@/components/theme-selector"
+import { ThemeSwitcher } from "@/components/theme-switcher"
 
 export function Header() {
   return (
@@ -19,7 +19,7 @@ function HeaderMobi() {
         VIFC
       </Link>
       <div className="flex items-center gap-2">
-        <ThemeSelector />
+        <ThemeSwitcher />
         <LanguageSwitcher />
         <MenuMobi />
       </div>
@@ -34,7 +34,7 @@ function HeaderPc() {
         VIFC
       </Link>
       <div className="flex items-center gap-2">
-        <ThemeSelector />
+        <ThemeSwitcher />
         <LanguageSwitcher />
       </div>
     </div>
